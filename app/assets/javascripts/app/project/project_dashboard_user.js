@@ -23,7 +23,7 @@ App.addChild('DashboardUserSettings', {
     var mode = ($(this.el).data('mode') === 'flex' ? 'flexible_' : '');
     var type = $( ".account_type option:selected" ).text();
     var label_text;
-
+      console.log((type));
     if (type == 'Pessoa Física') {
       label_text = this.$("#"+mode+"project_account_attributes_owner_name").data('natural');
       document_label_text = this.$("#"+mode+"project_account_attributes_owner_document").data('natural');

@@ -2,6 +2,11 @@
 class ProjectAccount < ActiveRecord::Base
   include I18n::Alchemy
   include Shared::BankAccountHelper
+  enum entity_type: {
+    pf: 'pf',
+    pj: 'pj',
+    mei: 'mei'
+  }
   belongs_to :project
   belongs_to :bank
   has_many :project_account_errors
@@ -15,11 +20,9 @@ class ProjectAccount < ActiveRecord::Base
 
   validates_length_of :agency, minimum: 4
 
-  def entity_type
-    if owner_document
-      owner_document.length > 14 ? 'Pessoa Jurídica' : 'Pessoa Física'
-    else
-      'Pessoa Física'
+  def self.entity_type_for_select
+    entity_types.map do |name, _| 
+      [I18n.t("shared.project_account_enum.#{name}"), name]
     end
   end
 

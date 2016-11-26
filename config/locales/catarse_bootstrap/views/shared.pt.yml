@@ -1,5 +1,9 @@
 pt:
   shared:
+    project_account_enum:
+      pf: 'Pessoa Física'
+      pj: 'Pessoa Jurídica (outras/exceto MEI)'
+      mei: 'Pessoa Jurídica (Micro Empreendedor Individual - MEI)' 
     account_type_value: 'Só aceitamos conta corrente'
     no_bank_label: 'Outro'
     alerts:
